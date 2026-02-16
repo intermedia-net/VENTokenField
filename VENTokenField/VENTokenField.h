@@ -47,6 +47,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (weak, nonatomic) id<VENTokenFieldDelegate> delegate;
 @property (weak, nonatomic) id<VENTokenFieldDataSource> dataSource;
+@property (nonatomic) CGFloat height;
 
 - (void)reloadData;
 - (void)collapse;

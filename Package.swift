@@ -18,7 +18,10 @@ let package = Package(
             name: "VENTokenField",
             dependencies: [],
             path: "VENTokenField",
-            publicHeadersPath: "."
+            publicHeadersPath: ".",
+            resources: [
+                .process("VENToken.xib")
+            ]
         )
     ]
 )
