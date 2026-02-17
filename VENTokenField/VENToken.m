@@ -21,6 +21,9 @@
 // THE SOFTWARE.
 
 #import "VENToken.h"
+#if __has_include("resource_bundle_accessor.h")
+#import "resource_bundle_accessor.h"
+#endif
 
 @interface VENToken ()
 @property (strong, nonatomic) UITapGestureRecognizer *tapGestureRecognizer;
@@ -33,7 +36,17 @@
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
-    self = [[[NSBundle bundleForClass:[self class]] loadNibNamed:NSStringFromClass([self class]) owner:self options:nil] firstObject];
+
+    NSBundle *bundle = nil;
+
+    #ifdef SWIFTPM_MODULE_BUNDLE
+        bundle = SWIFTPM_MODULE_BUNDLE;
+    #else
+        bundle = [NSBundle bundleForClass:[self class]];
+    #endif
+
+    self = [[bundle loadNibNamed:NSStringFromClass([self class]) owner:self options:nil] firstObject];
+
     if (self) {
         [self setUpInit];
     }

@@ -18,6 +18,18 @@ let package = Package(
             name: "VENTokenField",
             dependencies: [],
             path: "VENTokenField",
+            exclude: [
+                "../Gemfile",
+                "../Gemfile.lock",
+                "../Podfile",
+                "../Podfile.lock",
+                "../VENTokenField.podspec",
+                "../VENTokenField.xcodeproj",
+                "../VENTokenField.xcworkspace",
+                "../VENTokenFieldSample",
+                "../VENTokenFieldSampleTests",
+                "../Pods"
+            ],
             resources: [
                 .process("VENToken.xib")
             ],
